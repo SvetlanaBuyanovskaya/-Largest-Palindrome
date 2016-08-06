@@ -1,24 +1,17 @@
 package com.fandroid.factorial;
 
-
-import java.math.BigInteger;
-
 public class Factorial {
-    public static void main(String args[])
-    {
-        BigInteger fact = new BigInteger("1");
-        for (int i = 1; i <= 100; i++)
-        {
-            fact = fact.multiply(new BigInteger(new Integer(i).toString()));
+    public static void main(String args[]) {
+        DecimalBigInt fact = new DecimalBigInt(1);
+        for (int i = 1; i <= 100; i++) {
+            fact = fact.times(new DecimalBigInt(i));
         }
-
-        long sum = 0;
-        String s = fact.toString();
-        for (int i = 0; i < s.length(); i++)
-        {
-            sum = sum + Long.parseLong("" + s.charAt(i));
+        int sum = 0;
+        String s = fact.toDecimalString();
+        for (int i = 0; i < s.length(); i++) {
+            sum = sum + Integer.parseInt("" + s.charAt(i));
         }
-        System.out.print(sum);
+        System.out.println("FAC (100) =" + fact.toDecimalString() + ""
+                + "\n" + "Summ of te digist:" + sum);
     }
 }
-
